@@ -7,6 +7,7 @@ import {Cesta} from './cesta/cesta';
 import {Pesquisa} from './pesquisa/pesquisa';
 import {ReenviaSenha} from './reenvia-senha/reenvia-senha';
 import {Homepage} from './homepage/homepage';
+import { Z_FULL_FLUSH } from 'zlib';
 
 
 export const routes: Routes = [
@@ -16,7 +17,7 @@ export const routes: Routes = [
 {path: 'login' , component: Login},
 {path: 'cesta' , component: Cesta},
 {path: 'pesquisa' , component: Pesquisa},
-{path: 'reeviaSenha' , component: ReenviaSenha},
-{path: '' , component: Homepage},
+{path: 'reenviar' , component: ReenviaSenha},
+{path: '' , component: Homepage, pathMatch: 'full'},
 
 ];

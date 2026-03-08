@@ -1,1 +1,24 @@
-<p>cadastro works!</p>
+<div id="container_cadastro cliente">
+    <h1 id="titulo_cadastro_cliente">Cadastro de cliente</h1>
+    <p>Insira seus dados abaixo, para aproveitar ao maximo de nossos 
+        produtos
+    </p>
+</div>
+<div>
+    <form>
+        <label >Nome</label>
+        <input type="text" [(ngModel)]="cliente.nome" name="nome">
+        <br>
+
+        <label>E-mail</label>
+        <input type="text" [(ngModel)]="cliente.email" name="email">
+        <br>
+
+        <label>Senha</label>
+        <input type="password" [(ngModel)]="cliente.senha" name="senha">
+        <br><br>
+
+        <button (click)="cadastrar()">Cadastrar</button>
+
+    </form>
+</div>
