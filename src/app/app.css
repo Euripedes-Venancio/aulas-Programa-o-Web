@@ -1,0 +1,19 @@
+#cabecalho {
+    text-align: center;
+    color: red;
+}
+
+#rodape{
+    text-align: center;
+    
+}
+
+#container_menu{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    width: 80%;
+    border-style: double;
+    align-self: center;
+}
