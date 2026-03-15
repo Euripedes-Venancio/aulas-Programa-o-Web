@@ -1,1 +1,13 @@
-<p>vitrine works!</p>
+<h4>Vitrine</h4>
+
+@for (obj of lista; track obj) {
+    <div>
+        <h4>{{obj.nome}}</h4>
+        @if(obj.quantidade > 0){
+            <button>Adcionar na cesta</button>
+        }
+        @else {
+            Produto em falta
+        }
+    </div>
+}
