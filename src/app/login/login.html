@@ -1,14 +1,11 @@
-<div id="container_furmulario_login"><h2>Login</h2>
+<div id="container_formulario_login" class="text-center  container w-50 mx-auto">
+    <h2>Login</h2>
 
-<label>Email</label>
-<input type="email" [(ngModel)]="email" name="email">
+<input type="email" [(ngModel)]="email" name="email" class="form-control my-3" placeholder="Digite seu E-mail">
+
+<input type="password" [(ngModel)]="senha" name="senha" class="form-control my-3" placeholder="Digite sua senha">
 
 <br>
 
-<label>Senha</label>
-<input type="password" [(ngModel)]="senha" name="senha">
-
-<br><br>
-
-<button (click)="Login()">Entrar</button>
+<button (click)="Login()" class="btn btn-danger">Entrar</button>
 </div>

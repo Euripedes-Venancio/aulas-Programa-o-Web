@@ -1,17 +1,52 @@
-  <h1 id="cabecalho">Pastelaria Iogi</h1>
-  <nav>
-    <a routerLink="/vitrine">Vitrine</a>
-    <a routerLink="/cadastro">Cadastro</a>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/cesta">Cesta</a>
-    <a routerLink="/contato">Contato</a>
-    <a routerLink="/pesquisa">Pesquisar</a>
-    <a routerLink="/reenviar">Reenviar Senha</a>
+ <div>
+ <a routerLink=''>
+    <img src="logotipo_pastelaria.png" class="mx-auto d-block " width="400px">
+  </a> 
+  </div>
+  <div class="d-flex justify-content-center">
+  <nav class="d-flex gap-3 mb-5">
+    
+    <a routerLink="/vitrine"  routerLinkActive="btn-danger"
+                              class="btn"
+                              #rlaVitrine="routerLinkActive"
+                              [class.btn-outline-danger]="!rlaVitrine.isActive"
+                              [class.btn-danger]="rlaVitrine.isActive">Vitrine</a>
+    <a routerLink="/cadastro" routerLinkActive="btn-danger"
+                              class="btn"
+                              #rlaCadastro="routerLinkActive"
+                              [class.btn-outline-danger]="!rlaCadastro.isActive"
+                              [class.btn-danger]="rlaCadastro.isActive">Cadastro</a>
+    <a routerLink="/login"    routerLinkActive="btn-danger"
+                              class="btn"
+                              #rlaLogin="routerLinkActive"
+                              [class.btn-outline-danger]="!rlaLogin.isActive"
+                              [class.btn-danger]="rlaLogin.isActive">Login</a>
+    <a routerLink="/cesta"    routerLinkActive="btn-danger"
+                              class="btn"
+                              #rlaCesta="routerLinkActive"
+                              [class.btn-outline-danger]="!rlaCesta.isActive"
+                              [class.btn-danger]="rlaCesta.isActive">Cesta</a>
+    <a routerLink="/contato"  routerLinkActive="btn-danger"
+                              class="btn"
+                              #rlaContato="routerLinkActive"
+                              [class.btn-outline-danger]="!rlaContato.isActive"
+                              [class.btn-danger]="rlaContato.isActive">Contato</a>
+    <a routerLink="/pesquisa" routerLinkActive="btn-danger"
+                              class="btn"
+                              #rlaPesquisa="routerLinkActive"
+                              [class.btn-outline-danger]="!rlaPesquisa.isActive"
+                              [class.btn-danger]="rlaPesquisa.isActive">Pesquisar</a>
+    <a routerLink="/reenviar" routerLinkActive="btn-danger"
+                              class="btn"
+                              #rlaReenviar="routerLinkActive"
+                              [class.btn-outline-danger]="!rlaReenviar.isActive"
+                              [class.btn-danger]="rlaReenviar.isActive">Reenviar Senha</a>
   </nav>
+  </div>
 
 <router-outlet></router-outlet>
 
-<footer id="rodape">
+<footer class="bg-danger text-white p-4 d-flex justify-content-center mt-5">
   <p>© 2026 Minha Loja</p>
 </footer>
 
