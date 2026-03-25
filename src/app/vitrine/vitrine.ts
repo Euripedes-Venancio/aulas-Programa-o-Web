@@ -11,15 +11,17 @@ import { CommonModule } from '@angular/common';
 export class Vitrine {
   lista: Produto[] = [{
     "codigo": 1,
-    "nome": "Pastel de Flango",
-    "descritivo": "Delicioso pastel de Flango, pode ter catupiri ou não de acordo com o desejo do cliente. Na falta de flango usamos pombo",
+    "nome": "Pastel de Pombo",
+    "imagem": "/pastel-de-pombo.png",
+    "descritivo": "Delicioso pastel de Pombo, pode ter catupiri ou não de acordo com o desejo do cliente. Na falta de flango usamos pombo",
     "valor": 12,
     "quantidade":50,
     "keywords": "flango, pombo, pastel",
 },
 {
     "codigo":2,
-    "nome":"Pastel de carne",
+    "nome":"Pastel de 'carne' ",
+    "imagem": "/pastel-de-cachorro.png",
     "descritivo":"Classico pastel de carne, feito com as mais deliciosas carnes de boi, vaca, cachorro e capivara",
     "valor":11,
     "quantidade":30,
@@ -29,6 +31,7 @@ export class Vitrine {
 {
     "codigo":3,
     "nome":"Pastel especial ",
+    "imagem": "/pastel-de-rato.png",
     "descritivo":"Magnifico pastel!!!, receita de familia, contem carne de rato ou gambá, queijo de bufala, e uns matinhos do quintal do chef",
     "valor":20,
     "quantidade":5,
@@ -38,6 +41,7 @@ export class Vitrine {
 {
     "codigo":4,
     "nome":"Pastel de Goiaba",
+    "imagem": "/pastel-de-cachorro.png",
     "descritivo":"Delicioso pastel de goiaba, exclusivo para moradores de São Bernardo. Feito de massa de pastel e goiaba sem conservantes ou açucar",
     "valor":30,
     "quantidade":15,
@@ -47,6 +51,7 @@ export class Vitrine {
 {
     "codigo":5,
     "nome":"Caldo de Cana",
+    "imagem": "/pastel-de-cachorro.png",
     "descritivo":"Caldo de cana feito da plantação de cana de açucar clandestina do chef. ",
     "valor":7,
     "quantidade":10,
