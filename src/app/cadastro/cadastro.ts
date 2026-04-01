@@ -1,6 +1,19 @@
 import { Component } from '@angular/core';
 import {Cliente} from '../models/cliente';
 import { FormsModule } from '@angular/forms';
+import { ClienteService } from '../services/cliente';
+
+export class CadastroComponent {
+
+  cliente: Cliente = new Cliente();
+
+  constructor(private clienteService: ClienteService) {}
+
+  cadastrar() {
+    this.clienteService.setCliente(this.cliente);
+    console.log("ENVIADO:", this.cliente);
+  }
+}
 
 @Component({
   selector: 'app-cadastro',

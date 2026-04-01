@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Cliente } from '../models/cliente';
 import { FormsModule } from '@angular/forms';
+import { ClienteService } from '../services/cliente';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,17 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
+
 export class Login {
   email: string = '';
   senha: string = '';
+
+constructor(private clienteService: ClienteService) {}
+
+
+  ngOnInit() {
+    console.log("Service:", this.clienteService.getCliente());
+  }
 
 Login (){
   const dados = localStorage.getItem("cliente");
