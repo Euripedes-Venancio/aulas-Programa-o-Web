@@ -51,10 +51,11 @@ export class Vitrine {
 {
     "codigo":5,
     "nome":"Caldo de Cana",
-    "imagem": "/pastel-de-cachorro.png",
+    "imagem": "/imagem-caldo-de-cana.jpg",
     "descritivo":"Caldo de cana feito da plantação de cana de açucar clandestina do chef. ",
     "valor":7,
     "quantidade":10,
     "keywords":"caldo de cana",
-}]
+}
+]
 }

@@ -1,0 +1,25 @@
+.img-carousel {
+  width: 500px;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background-color: lightgray;
+}
+.carousel-container {
+  width: 500px;
+  margin: 0 auto;
+}
+#legenda{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
