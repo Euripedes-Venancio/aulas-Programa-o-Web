@@ -1,41 +1,37 @@
-<h4>Vitrine</h4>
+<div class="row align-items-center">
+  <h4>Vitrine</h4>
+</div>
 
-@for (obj of lista; track obj) {
+<div class="row">
+  @for (obj of listaFiltrada; track obj.id) {
+    <div class="col-4">
+      <div class="border p-3 mb-3 text-center">
 
-  <div class="row align-items-center border p-3 mb-3">
+        <a [routerLink]="['/produto', obj.id]" (click)="selecionarProduto(obj)">
+          <img [src]="obj.imagem" class="img-produto mb-2">
+        </a>
 
-    
-    <div class="col-2">
-      <img [src]="obj.imagem" class="img-produto">
-    </div>
+        <h4 class="fw-bold">{{ obj.nome }}</h4>
+        <h5>R$ {{ obj.valor }}</h5>
 
-    
-    <div class="col-10">
-
-      
-      <h4 class="fw-bold">{{obj.nome}}</h4>
-
-    
-      <p class="text-muted mb-2">{{obj.descritivo}}</p>
-
-      
-      <div class="d-flex justify-content-between align-items-center">
-
-        <h5 class="mb-0">R$ {{obj.valor}}</h5>
-
-        @if(obj.quantidade > 0){
-          <button class="btn btn-danger">
-            Adicionar na cesta
-          </button>
-        }
-        @else {
+        @if (obj.quantidade > 0) {
+          <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+            <input 
+              type="number" 
+              [(ngModel)]="obj.quantidade" 
+              min="1" 
+              [max]="obj.estoque"
+              class="form-control"
+              style="width: 70px;">
+            <button class="btn btn-danger" (click)="adicionarCarrinho(obj)">
+              Adicionar na cesta
+            </button>
+          </div>
+        } @else {
           <span class="text-danger">Produto em falta</span>
         }
 
       </div>
-
     </div>
-
-  </div>
-
-}
+  }
+</div>

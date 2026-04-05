@@ -1,0 +1,30 @@
+<div *ngIf="produto" class=" row align-items-center border p-3 mb-3">
+    <div class="col-2">
+
+    </div>
+    <div class="col-2 ">
+       <img [src]="produto.imagem" class="img-produto">
+    </div>
+    <div class="col-3">
+        <h2 class="fw-bold">{{produto.nome}}</h2>
+        <p>{{produto.descritivo}}</p>
+    </div>
+    <div class="col-3">
+        <h4>Preço: R${{produto.valor}}</h4>
+         @if(produto.valor > 0){
+          <button class="btn btn-danger" (click)="adicionarCarrinho(produto)">
+            Adicionar na cesta
+          </button>
+          <input 
+                     type="number" 
+                     [(ngModel)]="produto.quantidade" 
+                     min="1"
+                     class="form-control mb-2"
+                     style="width: 80px;">
+
+        }
+        @else {
+          <span class="text-danger">Produto em falta</span>
+        }
+    </div>
+</div>

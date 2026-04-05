@@ -8,6 +8,7 @@ import {Pesquisa} from './pesquisa/pesquisa';
 import {ReenviaSenha} from './reenvia-senha/reenvia-senha';
 import {Homepage} from './homepage/homepage';
 import { Z_FULL_FLUSH } from 'zlib';
+import { ProdutoDetalhado } from './produto-detalhado/produto-detalhado';
 
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
 {path: 'cesta' , component: Cesta},
 {path: 'pesquisa' , component: Pesquisa},
 {path: 'reenviar' , component: ReenviaSenha},
+{path: 'produto/:id' , component: ProdutoDetalhado},
 {path: '' , component: Homepage, pathMatch: 'full'},
 
 ];

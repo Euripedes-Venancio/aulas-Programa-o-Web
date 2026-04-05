@@ -1,1 +1,46 @@
-<p>cesta works!</p>
+<div class="text-center">
+    <h2>Cesta</h2>
+</div>
+
+<div id="cabecalho-itens-cesta" class="row text-center fw-bold mb-3 mt-3">
+    <div class="col-4">ITEM</div>
+    <div class="col-4">QTD</div>
+    <div class="col-4">VALOR</div>
+</div>
+
+
+<div  class="row text-center align-items-center mb-2" *ngFor="let item of carrinho">
+
+    <div class="col-4">
+        <h4>{{item.nome}}</h4>
+    </div>
+
+    <div class="col-4">
+        <p>{{item.quantidade}}</p> 
+    </div>
+
+    <div class="col-4">
+        <p>R$ {{item.valor}}</p>
+    </div>
+
+</div>
+
+<div id="container-total" class="row">
+    <div class="col-8 text-center">
+        <h2>TOTAL:</h2>
+    </div>
+    <div  class="col-4 text-center">
+        <h2> R$ {{getTotal()}}</h2>
+    </div>
+</div>
+<div class="align-items-center">
+    <button class="btn btn-secondary me-2" (click)="limparCesta()">
+        Limpar cesta
+    </button>
+    <button class="btn btn-success" (click)="finalizarCompra()">
+        Finalizar compra
+    </button>
+</div>
+
+
+<!--- <pre>{{carrinho | json}}</pre> -->

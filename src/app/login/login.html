@@ -1,11 +1,24 @@
-<div id="container_formulario_login" class="text-center  container w-50 mx-auto">
+<div class="row align-items-center">
+<div id="container_formulario_login" class="col-5 text-center ">
+    <h4>Já Tem cadastro ???</h4>
     <h2>Login</h2>
 
 <input type="email" [(ngModel)]="email" name="email" class="form-control my-3 " placeholder="Digite seu E-mail">
 
 <input type="password" [(ngModel)]="senha" name="senha" class="form-control my-3" placeholder="Digite sua senha">
-
+<a [routerLink]="['../reenviar']">
+    <p>Esqueci Minha Senha</p>
+</a>
 <br>
 
 <button (click)="Login()" class="btn btn-danger">Entrar</button>
+</div>
+<div id="container-fazer-cadastro" class="col-6 align-items-center">
+    <h4> Ainda não tem um cadastro ???</h4>
+<a routerLink="/cadastro" class="btn btn-danger">
+  Clique aqui
+</a>
+    
+</div>
+
 </div>

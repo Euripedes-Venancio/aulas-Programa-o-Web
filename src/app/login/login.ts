@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Cliente } from '../models/cliente';
 import { FormsModule } from '@angular/forms';
 import { ClienteService } from '../services/cliente';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -29,6 +30,7 @@ Login (){
   if (dados){
     const cliente: Cliente = JSON.parse(dados);
     if (cliente.email === this.email && cliente.senha === this.senha){
+      localStorage.setItem('usuarioLogado', this.email);
       alert ("Login realizado com sucesso");
       
     }else{
