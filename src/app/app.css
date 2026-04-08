@@ -1,19 +1,110 @@
-#cabecalho {
-    text-align: center;
-    color: red;
+/* LOGO */
+.logo-img {
+  max-width: 160px;
 }
 
-#rodape{
-    text-align: center;
-    
+/* TEXTO USUÁRIO */
+.usuario-msg {
+  font-weight: 500;
+  font-size: 14px;
 }
 
-#container_menu{
-    display: flex;
+/* ÍCONE */
+.user-icon {
+  font-size: 32px;
+  color: #333;
+  transition: 0.2s;
+}
+
+.user-icon:hover {
+  color: red;
+}
+
+/* ALERTA */
+.alerta-topo {
+  background: #dc3545;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+}
+
+/* MENU */
+.menu-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid #dc3545;
+  border-radius: 8px;
+  color: #dc3545;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* ATIVO */
+.ativo {
+  background: #dc3545;
+  color: white !important;
+}
+
+/* RODAPÉ */
+.rodape {
+  background: #dc3545;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  
+  .usuario-msg {
+    display: none;
+  }
+
+  .menu {
     justify-content: center;
-    margin: auto;
-    align-items: center;
-    width: 80%;
-    border-style: double;
-    align-self: center;
+  }
+
+}
+
+.alerta-topo {
+  background: #dc3545;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  position: relative;
+}
+
+.texto-rolando {
+  display: inline-block;
+  padding-left: 100%;
+  animation: rolar 12s linear infinite;
+  font-weight: bold;
+}
+
+@keyframes rolar {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

@@ -1,11 +1,55 @@
-#container_formulario_login {
-  background: linear-gradient(to right, #bdc3c7, #2c3e50);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-left: 40px;
+.auth-container {
+  padding: 40px 0 60px;
 }
 
-#container-fazer-cadastro{
-  margin-left: 70px;
+.auth-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.destaque-cadastro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulo-auth {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #212529;
+}
+
+.texto-auth {
+  color: #6c757d;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.link-auth {
+  text-decoration: none;
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.link-auth:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 25px 0 40px;
+  }
+
+  .auth-card {
+    padding: 22px;
+  }
+
+  .titulo-auth {
+    font-size: 1.6rem;
+  }
 }

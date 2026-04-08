@@ -1,24 +1,53 @@
-<div class="row align-items-center">
-<div id="container_formulario_login" class="col-5 text-center ">
-    <h4>Já Tem cadastro ???</h4>
-    <h2>Login</h2>
+<div class="container auth-container">
+  <div class="row g-4 justify-content-center align-items-stretch">
 
-<input type="email" [(ngModel)]="email" name="email" class="form-control my-3 " placeholder="Digite seu E-mail">
+    <div class="col-12 col-lg-5">
+      <div class="auth-card">
+        <span class="badge bg-danger mb-3">Área do cliente</span>
+        <h2 class="titulo-auth">Login</h2>
+        <p class="texto-auth">
+          Entre com seu e-mail e senha para acessar sua conta.
+        </p>
 
-<input type="password" [(ngModel)]="senha" name="senha" class="form-control my-3" placeholder="Digite sua senha">
-<a [routerLink]="['../reenviar']">
-    <p>Esqueci Minha Senha</p>
-</a>
-<br>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control my-3"
+          placeholder="Digite seu e-mail"
+        >
 
-<button (click)="Login()" class="btn btn-danger">Entrar</button>
-</div>
-<div id="container-fazer-cadastro" class="col-6 align-items-center">
-    <h4> Ainda não tem um cadastro ???</h4>
-<a routerLink="/cadastro" class="btn btn-danger">
-  Clique aqui
-</a>
-    
-</div>
+        <input
+          type="password"
+          [(ngModel)]="senha"
+          name="senha"
+          class="form-control my-3"
+          placeholder="Digite sua senha"
+        >
 
+        <a [routerLink]="['/reenviar']" class="link-auth">
+          Esqueci minha senha
+        </a>
+
+        <button (click)="fazerLogin()" class="btn btn-danger w-100 mt-3">
+          Entrar
+        </button>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-5">
+      <div class="auth-card destaque-cadastro">
+        <span class="badge bg-dark mb-3">Novo por aqui?</span>
+        <h2 class="titulo-auth">Criar cadastro</h2>
+        <p class="texto-auth">
+          Cadastre-se para explorar nossos pastéis mais suspeitamente deliciosos.
+        </p>
+
+        <a routerLink="/cadastro" class="btn btn-outline-danger w-100 mt-3">
+          Clique aqui para se cadastrar
+        </a>
+      </div>
+    </div>
+
+  </div>
 </div>

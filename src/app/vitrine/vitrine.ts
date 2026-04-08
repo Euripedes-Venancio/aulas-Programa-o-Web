@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Produto } from '../model/produto';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Router, NavigationEnd} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vitrine',
@@ -69,58 +69,85 @@ export class Vitrine {
 
   listaFiltrada: Produto[] = [];
 
-ngOnInit() {
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  this.listaFiltrada = this.lista;
+  ngOnInit() {
+    this.listaFiltrada = [...this.lista];
 
-  this.aplicarBusca();
+    if (isPlatformBrowser(this.platformId)) {
+      this.aplicarBusca();
 
-  // 👇 escuta evento manual
-  window.addEventListener('buscaAtualizada', () => {
+      window.addEventListener('buscaAtualizada', this.atualizarBusca);
+    }
+  }
+
+  ngOnDestroy() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('buscaAtualizada', this.atualizarBusca);
+    }
+  }
+
+  atualizarBusca = () => {
     this.aplicarBusca();
-  });
+  };
 
-}
- constructor(private router: Router) {}
-aplicarBusca() {
+  aplicarBusca() {
+    if (!isPlatformBrowser(this.platformId)) {
+      this.listaFiltrada = [...this.lista];
+      return;
+    }
 
-  const termo = localStorage.getItem('busca') || '';
+    const termo = localStorage.getItem('busca') || '';
+    const busca = termo.toLowerCase().trim();
 
-  const busca = termo.toLowerCase().trim();
+    if (!busca) {
+      this.listaFiltrada = [...this.lista];
+      return;
+    }
 
-  if (!busca) {
-    this.listaFiltrada = this.lista;
-    return;
+    this.listaFiltrada = this.lista.filter((produto: Produto) =>
+      produto.nome.toLowerCase().includes(busca) ||
+      produto.keywords?.toLowerCase().includes(busca)
+    );
   }
 
-  this.listaFiltrada = this.lista.filter((produto: Produto) =>
-    produto.nome.toLowerCase().includes(busca) ||
-    produto.keywords?.toLowerCase().includes(busca)
-  );
-
-}
-
-  selecionarProduto(produto: any) {
-    localStorage.setItem('produtoSelecionado', JSON.stringify(produto));
+  limparBusca() {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('busca');
+    }
+    this.listaFiltrada = [...this.lista];
   }
 
-  adicionarCarrinho(produto: any) {
+  selecionarProduto(produto: Produto) {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('produtoSelecionado', JSON.stringify(produto));
+    }
+  }
+
+  adicionarCarrinho(produto: Produto) {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
 
     let carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
 
     let existente = carrinho.find((p: any) => p.id === produto.id);
 
+    const quantidadeSelecionada = produto.quantidade || 1;
+
     if (existente) {
-      existente.qtd += produto.qtd || 1;
+      existente.qtd += quantidadeSelecionada;
     } else {
       carrinho.push({
         ...produto,
-        qtd: produto.qtd || 1
+        qtd: quantidadeSelecionada
       });
     }
 
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-    alert('Produto adicionado!');
+    alert('Produto adicionado à cesta!');
   }
 }

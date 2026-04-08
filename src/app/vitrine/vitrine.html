@@ -1,37 +1,52 @@
-<div class="row align-items-center">
-  <h4>Vitrine</h4>
-</div>
-
-<div class="row">
-  @for (obj of listaFiltrada; track obj.id) {
-    <div class="col-4">
-      <div class="border p-3 mb-3 text-center">
-
-        <a [routerLink]="['/produto', obj.id]" (click)="selecionarProduto(obj)">
-          <img [src]="obj.imagem" class="img-produto mb-2">
-        </a>
-
-        <h4 class="fw-bold">{{ obj.nome }}</h4>
-        <h5>R$ {{ obj.valor }}</h5>
-
-        @if (obj.quantidade > 0) {
-          <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
-            <input 
-              type="number" 
-              [(ngModel)]="obj.quantidade" 
-              min="1" 
-              [max]="obj.estoque"
-              class="form-control"
-              style="width: 70px;">
-            <button class="btn btn-danger" (click)="adicionarCarrinho(obj)">
-              Adicionar na cesta
-            </button>
-          </div>
-        } @else {
-          <span class="text-danger">Produto em falta</span>
-        }
-
-      </div>
+<div class="container vitrine-container">
+  <div class="vitrine-topo">
+    <div>
+      <h2 class="titulo-vitrine">Vitrine</h2>
+      <p class="subtitulo-vitrine">Escolha seu pastel maluco favorito 🍥</p>
     </div>
-  }
+
+    <button class="btn btn-outline-danger btn-sm" (click)="limparBusca()">
+      Limpar busca
+    </button>
+  </div>
+
+  <div class="row g-4">
+    @for (obj of listaFiltrada; track obj.id) {
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card-produto">
+
+          <a [routerLink]="['/produto', obj.id]" (click)="selecionarProduto(obj)" class="link-imagem">
+            <img [src]="obj.imagem" [alt]="obj.nome" class="img-produto">
+          </a>
+
+          <div class="conteudo-produto">
+            <h4 class="nome-produto">{{ obj.nome }}</h4>
+            <p class="descricao-produto">{{ obj.descritivo }}</p>
+            <h5 class="preco-produto">R$ {{ obj.valor }}</h5>
+
+            @if (obj.estoque > 0) {
+              <div class="acoes-produto">
+                <input 
+                  type="number" 
+                  [(ngModel)]="obj.quantidade" 
+                  min="1" 
+                  [max]="obj.estoque"
+                  class="form-control input-quantidade"
+                >
+
+                <button class="btn btn-danger botao-cesta" (click)="adicionarCarrinho(obj)">
+                  Adicionar na cesta
+                </button>
+              </div>
+
+              <small class="estoque-produto">Estoque: {{ obj.estoque }}</small>
+            } @else {
+              <span class="text-danger fw-bold">Produto em falta</span>
+            }
+          </div>
+
+        </div>
+      </div>
+    }
+  </div>
 </div>

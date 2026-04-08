@@ -1,6 +1,42 @@
-#container_cadastro{
-  background: linear-gradient(to right, #bdc3c7, #2c3e50);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
+.cadastro-container {
+  padding: 40px 0 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.cadastro-card {
+  width: 100%;
+  max-width: 620px;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.titulo-cadastro {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #212529;
+}
+
+.texto-cadastro {
+  color: #6c757d;
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .cadastro-container {
+    padding: 25px 0 40px;
+  }
+
+  .cadastro-card {
+    padding: 22px;
+  }
+
+  .titulo-cadastro {
+    font-size: 1.6rem;
+  }
 }

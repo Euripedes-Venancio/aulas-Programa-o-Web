@@ -1,11 +1,24 @@
-<div id="container_formulario_resgatarsenha" class="text-center  container w-50 mx-auto">
-    <h2 class="mb-3">Reenviar Senha</h2>
-    <p>Insira Abaixo o seu e-mail utilizado no cadastro para receber a sua senha</p>
-<form>
-<div>
-<label class="form-label">Email</label>
-<input type="email" [(ngModel)]="email" name="email" class="form-control mb-3">
-</div>
-<button (click)="reenviar()" class="btn btn-danger width 100%">Reenviar senha</button>
-</form>
+<div class="container senha-container">
+  <div class="senha-card">
+    <span class="badge bg-danger mb-3">Recuperação</span>
+    <h2 class="titulo-senha">Reenviar senha</h2>
+    <p class="texto-senha">
+      Informe abaixo o e-mail utilizado no cadastro para recuperar sua senha.
+    </p>
+
+    <form>
+      <label class="form-label">E-mail</label>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        class="form-control mb-3"
+        placeholder="Digite seu e-mail"
+      >
+
+      <button type="button" (click)="reenviar()" class="btn btn-danger w-100">
+        Reenviar senha
+      </button>
+    </form>
+  </div>
 </div>

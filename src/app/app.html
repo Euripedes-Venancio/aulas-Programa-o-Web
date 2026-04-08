@@ -1,75 +1,66 @@
-<div class="row align-items-center">
-    <div class="col-3">
-      <a routerLink=''>
-      <img src="logotipo_pastelaria.png" alt="Pagina inicial" class="mx-auto d-block " width="200px">
-      </a> 
+<div class="container-fluid p-3 shadow-sm bg-white">
+
+  <div class="row align-items-center g-3">
+
+    <!-- LOGO -->
+    <div class="col-12 col-md-3 text-center text-md-start">
+      <a routerLink="">
+        <img src="logotipo_pastelaria.png" alt="Logo" class="logo-img">
+      </a>
     </div>
-    <div class="col-6">
-      <div class="d-flex">
-        
-        <input type="text" class="form-control" placeholder="Buscar Produtos" [(ngModel)]="busca">
-        <button  type="button" class="btn btn-danger" (click)="buscar()">Buscar</button>
-        
+
+    <!-- BUSCA -->
+    <div class="col-12 col-md-6">
+      <div class="input-group">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Buscar pastéis malucos..."
+          [(ngModel)]="busca"
+        >
+        <button class="btn btn-danger" (click)="buscar()">Buscar</button>
       </div>
     </div>
-  
-    <div class=" d-flex col-3" >
-      <p>{{mensagem}}</p>  
-      <a href="/login">
-        <i class="bi bi-person-circle" style="font-size: 40px;"></i>
-        </a>
-        <div >
-        <button (click)="logout()" class="btn btn-outline-danger">
-           Logout
-        </button>
-        </div>
-      </div>
-</div>
-<marquee scrollamount="10" style="background-color: red; color: white;font-weight: bold;">Não nos responsabilizamos por eventuais diarréias</marquee>
-  <div class="d-flex justify-content-center">
-  <nav class="d-flex gap-3 mb-5">
-    
-    <a routerLink="/vitrine"  routerLinkActive="btn-danger"
-                              class="btn"
-                              #rlaVitrine="routerLinkActive"
-                              [class.btn-outline-danger]="!rlaVitrine.isActive"
-                              [class.btn-danger]="rlaVitrine.isActive">Vitrine</a>
-    <!---- <a routerLink="/cadastro" routerLinkActive="btn-danger"
-                              class="btn"
-                              #rlaCadastro="routerLinkActive"
-                              [class.btn-outline-danger]="!rlaCadastro.isActive"
-                              [class.btn-danger]="rlaCadastro.isActive">Cadastro</a>  
-    <a routerLink="/login"    routerLinkActive="btn-danger"
-                              class="btn"
-                              #rlaLogin="routerLinkActive"
-                              [class.btn-outline-danger]="!rlaLogin.isActive"
-                              [class.btn-danger]="rlaLogin.isActive">Login</a> -->
-    <a routerLink="/cesta"    routerLinkActive="btn-danger" 
-                              class="btn"
-                              #rlaCesta="routerLinkActive"
-                              [class.btn-outline-danger]="!rlaCesta.isActive"
-                              [class.btn-danger]="rlaCesta.isActive">Cesta</a>
-    <a routerLink="/contato"  routerLinkActive="btn-danger"
-                              class="btn"
-                              #rlaContato="routerLinkActive"
-                              [class.btn-outline-danger]="!rlaContato.isActive"
-                              [class.btn-danger]="rlaContato.isActive">Contato</a>
-   <!---- <a routerLink="/pesquisa" routerLinkActive="btn-danger"
-                              class="btn"
-                              #rlaPesquisa="routerLinkActive"
-                              [class.btn-outline-danger]="!rlaPesquisa.isActive"
-                              [class.btn-danger]="rlaPesquisa.isActive">Pesquisar</a>
-    <a routerLink="/reenviar" routerLinkActive="btn-danger"
-                              class="btn"
-                              #rlaReenviar="routerLinkActive"
-                              [class.btn-outline-danger]="!rlaReenviar.isActive"
-                              [class.btn-danger]="rlaReenviar.isActive">Reenviar Senha</a> -->
-  </nav>
+
+    <!-- USUÁRIO -->
+    <div class="col-12 col-md-3 d-flex justify-content-center justify-content-md-end align-items-center gap-2">
+
+      <span class="usuario-msg">{{mensagem}}</span>
+
+      <a routerLink="/login">
+        <i class="bi bi-person-circle user-icon"></i>
+      </a>
+
+      <button (click)="logout()" class="btn btn-outline-danger btn-sm">
+        Logout
+      </button>
+
+    </div>
+
   </div>
 
-<router-outlet></router-outlet>  
+</div>
 
-<footer class="bg-danger text-white p-4 d-flex justify-content-center mt-5">
-  <p>© 2026 Pastelaria Iogi</p>
+<!-- ALERTA -->
+<div class="alerta-topo">
+  <div class="texto-rolando">
+    Não nos responsabilizamos por eventuais diarréias     •     Pastéis malucos passando na sua tela      •     Coma por sua conta e risco 😈
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="menu-container">
+  <nav class="menu">
+    
+    <a routerLink="/vitrine" routerLinkActive="ativo">Vitrine</a>
+    <a routerLink="/cesta" routerLinkActive="ativo">Cesta</a>
+    <a routerLink="/contato" routerLinkActive="ativo">Contato</a>
+
+  </nav>
+</div>
+
+<router-outlet></router-outlet>
+
+<footer class="rodape">
+  © 2026 Pastelaria Iogi
 </footer>
-

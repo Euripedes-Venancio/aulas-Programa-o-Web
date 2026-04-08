@@ -1,25 +1,85 @@
+.homepage-container {
+  padding: 25px 0 40px;
+}
+
+.titulo-home {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 10px;
+}
+
+.subtitulo-home {
+  color: #6c757d;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.carousel-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .img-carousel {
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: 320px;
   object-fit: contain;
   display: block;
-  margin: 0 auto;
-  background-color: lightgray;
+  background-color: #f1f3f5;
 }
-.carousel-container {
-  width: 500px;
-  margin: 0 auto;
-}
-#legenda{
+
+.legenda-carousel {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
   text-align: center;
-
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.55);
   color: white;
   padding: 10px;
   border-radius: 10px;
+}
+
+.legenda-carousel h5 {
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.legenda-carousel p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .titulo-home {
+    font-size: 1.6rem;
+  }
+
+  .subtitulo-home {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  .carousel-wrapper {
+    max-width: 100%;
+  }
+
+  .img-carousel {
+    height: 220px;
+  }
+
+  .legenda-carousel {
+    width: 90%;
+    padding: 8px;
+  }
+
+  .legenda-carousel h5 {
+    font-size: 1rem;
+  }
+
+  .legenda-carousel p {
+    font-size: 0.82rem;
+  }
 }

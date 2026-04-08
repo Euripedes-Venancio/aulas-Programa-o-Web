@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { Cliente } from '../models/cliente';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ClienteService } from '../services/cliente';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+import { Cliente } from '../models/cliente';
 
 @Component({
   selector: 'app-login',
@@ -11,31 +11,33 @@ import { RouterModule } from '@angular/router';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-
 export class Login {
   email: string = '';
   senha: string = '';
 
-constructor(private clienteService: ClienteService) {}
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
+  fazerLogin() {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-  ngOnInit() {
-    console.log("Service:", this.clienteService.getCliente());
-  }
+    const dados = localStorage.getItem('cliente');
 
-Login (){
-  const dados = localStorage.getItem("cliente");
+    if (!dados) {
+      alert('Nenhum cliente cadastrado.');
+      return;
+    }
 
-
-  if (dados){
     const cliente: Cliente = JSON.parse(dados);
-    if (cliente.email === this.email && cliente.senha === this.senha){
+
+    if (cliente.email === this.email && cliente.senha === this.senha) {
       localStorage.setItem('usuarioLogado', this.email);
-      alert ("Login realizado com sucesso");
-      
-    }else{
-      alert("Email ou senha incorretos, revise os dados e tente novamente");
+      alert('Login realizado com sucesso!');
+      this.router.navigate(['/vitrine']);
+    } else {
+      alert('Email ou senha incorretos. Revise os dados e tente novamente.');
     }
   }
-}
 }

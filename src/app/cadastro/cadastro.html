@@ -1,24 +1,42 @@
-<div id="container_cadastro" class="text-center  container w-50 mx-auto">
-<div id="container_cadastro cliente" class="mb-5">
-    <h1 id="titulo_cadastro_cliente">Cadastro de cliente</h1>
-    <p>Insira seus dados abaixo, para aproveitar ao maximo de nossos 
-        produtos
+<div class="container cadastro-container">
+  <div class="cadastro-card">
+    <span class="badge bg-danger mb-3">Cadastro</span>
+    <h1 class="titulo-cadastro">Cadastro de cliente</h1>
+    <p class="texto-cadastro">
+      Preencha seus dados para aproveitar ao máximo os produtos da Pastelaria Iogi.
     </p>
-</div>
-<div>
-    <form >
-        <label class="form-label" >Nome</label>
-        <input type="text" [(ngModel)]="cliente.nome" name="nome" class="form-control my-3" placeholder="Nome completo">
 
-        <label class="form-label">E-mail</label>
-        <input type="text" [(ngModel)]="cliente.email" name="email" class="form-control my-3" placeholder="E-mail">
+    <form>
+      <label class="form-label">Nome</label>
+      <input
+        type="text"
+        [(ngModel)]="cliente.nome"
+        name="nome"
+        class="form-control my-3"
+        placeholder="Nome completo"
+      >
 
+      <label class="form-label">E-mail</label>
+      <input
+        type="email"
+        [(ngModel)]="cliente.email"
+        name="email"
+        class="form-control my-3"
+        placeholder="E-mail"
+      >
 
-        <label class="form-label">Senha</label>
-        <input type="password" [(ngModel)]="cliente.senha" name="senha" class="form-control my-3" placeholder="Senha">
-    
-        <button (click)="cadastrar()" class="btn btn-danger">Cadastrar</button>
+      <label class="form-label">Senha</label>
+      <input
+        type="password"
+        [(ngModel)]="cliente.senha"
+        name="senha"
+        class="form-control my-3"
+        placeholder="Senha"
+      >
 
+      <button type="button" (click)="cadastrar()" class="btn btn-danger w-100 mt-2">
+        Cadastrar
+      </button>
     </form>
-</div>
+  </div>
 </div>

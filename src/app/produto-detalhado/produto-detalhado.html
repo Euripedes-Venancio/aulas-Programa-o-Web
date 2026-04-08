@@ -1,30 +1,55 @@
-<div *ngIf="produto" class=" row align-items-center border p-3 mb-3">
-    <div class="col-2">
+<div class="container detalhe-container" *ngIf="produto">
+  <div class="row detalhe-card align-items-center g-4">
 
+    <div class="col-12 col-md-6">
+      <div class="imagem-wrapper">
+        <img [src]="produto.imagem" [alt]="produto.nome" class="img-produto">
+      </div>
     </div>
-    <div class="col-2 ">
-       <img [src]="produto.imagem" class="img-produto">
-    </div>
-    <div class="col-3">
-        <h2 class="fw-bold">{{produto.nome}}</h2>
-        <p>{{produto.descritivo}}</p>
-    </div>
-    <div class="col-3">
-        <h4>Preço: R${{produto.valor}}</h4>
-         @if(produto.valor > 0){
-          <button class="btn btn-danger" (click)="adicionarCarrinho(produto)">
-            Adicionar na cesta
-          </button>
-          <input 
-                     type="number" 
-                     [(ngModel)]="produto.quantidade" 
-                     min="1"
-                     class="form-control mb-2"
-                     style="width: 80px;">
 
+    <div class="col-12 col-md-6">
+      <div class="info-produto">
+        <span class="badge bg-danger mb-3">Produto em destaque</span>
+
+        <h2 class="nome-produto">{{ produto.nome }}</h2>
+
+        <p class="descricao-produto">
+          {{ produto.descritivo }}
+        </p>
+
+        <p class="estoque-produto">
+          Estoque disponível: <strong>{{ produto.estoque }}</strong>
+        </p>
+
+        <h3 class="preco-produto">R$ {{ produto.valor }}</h3>
+
+        @if (produto.estoque > 0) {
+          <div class="acoes-produto">
+            <label for="qtd" class="form-label mb-1">Quantidade</label>
+            <input
+              id="qtd"
+              type="number"
+              [(ngModel)]="produto.qtd"
+              min="1"
+              [max]="produto.estoque"
+              class="form-control input-quantidade"
+            >
+
+            <button class="btn btn-danger btn-comprar" (click)="adicionarCarrinho(produto)">
+              Adicionar na cesta
+            </button>
+          </div>
+        } @else {
+          <span class="text-danger fw-bold">Produto em falta</span>
         }
-        @else {
-          <span class="text-danger">Produto em falta</span>
-        }
+      </div>
     </div>
+
+  </div>
+</div>
+
+<div class="container detalhe-container" *ngIf="!produto">
+  <div class="alert alert-warning text-center">
+    Nenhum produto foi selecionado.
+  </div>
 </div>
